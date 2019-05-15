@@ -7,10 +7,10 @@ Rails.configuration.to_prepare do
 end
 Redmine::Plugin.register :redmine_mentions do
   name 'Redmine Mentions'
-  author 'Arkhitech'
+  author 'Arkhitech, Taine Woo'
   description 'This is a plugin for Redmine which gives suggestions on using username in comments'
-  version '0.0.1'
-  url 'https://github.com/arkhitech/redmine_mentions'
-  author_url 'http://www.arkhitech.com/'
+  version '0.1.0'
+  url 'https://github.com/tainewoo/redmine_mentions'
+  author_url 'https://github.com/tainewoo'
   settings :default => {'trigger' => '@'}, :partial => 'settings/mention'
 end
