@@ -1,5 +1,13 @@
 Redmine Mentions
 ================
+Forked from https://github.com/arkhitech/redmine_mentions which seems to be unmaintained, and made it work with Redmine4.x/Ruby2.6.x/Rails5.2.x.
+
+Issues and PRs are welcome.
+
+Redmine site: http://www.redmine.org/plugins/redmine-mentions
+
+
+=============
 
 Allows users to mention team members in their notes/comments.
 
