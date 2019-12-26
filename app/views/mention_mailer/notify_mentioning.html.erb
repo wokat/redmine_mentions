@@ -1,8 +1,8 @@
-<h4><%= link_to "[#{@issue.project.name} - #{@issue.tracker.name} ##{@issue.id}] #{@issue.subject}", issue_url(@issue) %></h4>
+<h4><%= link_to "[#{@issue.project.name} - #{@issue.tracker.name}##{@issue.id}] #{@issue.subject}", issue_url(@issue) %></h4>
 
 <br /><br />
 
-<i>You were mentioned by <strong><%= @journal.user.login %></strong> on <strong><%=  @journal.created_on.to_s(:db) %></strong></i>
+<i>You were mentioned by <strong><%= @journal.user.login %></strong> on <strong><%=  @journal.created_on.localtime.to_s %></strong></i>
 
 <br /><br />
 
