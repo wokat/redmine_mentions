@@ -1,16 +1,27 @@
-require 'redmine'
+# frozen_string_literal: true
 
-Rails.configuration.to_prepare do
-  require_dependency 'redmine_mentions/hooks'
-  require_dependency 'journal'
-  Journal.send(:include, RedmineMentions::JournalPatch)
-end
+require 'redmine'
+require 'redmine_plugin_kit'
+
+loader = RedminePluginKit::Loader.new plugin_id: 'redmine_mentions'
+
+loader.require_files 'redmine_mentions/plugin_version'
+
 Redmine::Plugin.register :redmine_mentions do
   name 'Redmine Mentions'
   author 'Arkhitech, Taine Woo'
   description 'This is a plugin for Redmine which gives suggestions on using username in comments'
-  version '0.1.1'
+  version RedmineMentions::PluginVersion::VERSION
   url 'https://github.com/tainewoo/redmine_mentions'
   author_url 'https://github.com/tainewoo'
+
+  directory File.dirname(__FILE__)
+
+  requires_redmine version_or_higher: '5.0'
+
   settings :default => {'trigger' => '@'}, :partial => 'settings/mention'
+end
+
+RedminePluginKit::Loader.persisting do
+  loader.load_model_hooks!
 end

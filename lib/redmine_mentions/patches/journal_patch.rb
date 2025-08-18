@@ -1,9 +1,17 @@
+# frozen_string_literal: true
+
 module RedmineMentions
-  module JournalPatch
-    def self.included(base)
-      base.class_eval do
+  module Patches
+    module JournalPatch
+      extend ActiveSupport::Concern
+
+      included do
+        include InstanceMethods
+
         after_create :send_mail
-        
+      end
+
+      module InstanceMethods
         def send_mail
           if self.journalized.is_a?(Issue) && self.notes.present?
             issue = self.journalized
