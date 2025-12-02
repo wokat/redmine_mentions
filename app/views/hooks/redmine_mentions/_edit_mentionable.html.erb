@@ -4,7 +4,7 @@
 <% regex_find = '/\B'+Setting.plugin_redmine_mentions['trigger']+'(\w*)$/i'%>
 
 <% if @project %>
-  <% users = @project.users.to_a.delete_if{|u| (u.type != 'User' || u.mail.empty?)}%>
+  <% users = @project.users.includes(:email_address).to_a.delete_if{|u| (u.type != 'User' || u.mail.empty?)}%>
 <% else %>
   <% users = User.active.to_a.delete_if{|u| (u.type != 'User' || u.mail.empty?)}%>
 <% end %>
