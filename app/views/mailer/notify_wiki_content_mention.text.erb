@@ -1,0 +1,7 @@
+<%= @wiki_content.title %>
+
+<%= @wiki_content_url %>
+
+<%= l(:text_you_were_mentioned, :login => @author.login, :created_on => (format_time @created_on, true)) %>
+
+<%= @wiki_content.comments %>

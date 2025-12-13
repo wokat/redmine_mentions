@@ -2,6 +2,6 @@
 
 module RedmineMentions
   module PluginVersion
-    VERSION = '0.1.1' unless defined? RedmineMentions::PluginVersion::VERSION
+    VERSION = '0.2.0' unless defined? RedmineMentions::PluginVersion::VERSION
   end
 end

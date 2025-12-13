@@ -5,8 +5,6 @@ require 'redmine_plugin_kit'
 
 loader = RedminePluginKit::Loader.new plugin_id: 'redmine_mentions'
 
-loader.require_files 'redmine_mentions/plugin_version'
-
 Redmine::Plugin.register :redmine_mentions do
   name 'Redmine Mentions'
   author 'Arkhitech, Taine Woo'
@@ -17,9 +15,9 @@ Redmine::Plugin.register :redmine_mentions do
 
   directory File.dirname(__FILE__)
 
-  requires_redmine version_or_higher: '5.0'
+  requires_redmine version_or_higher: '6.0'
 
-  settings :default => {'trigger' => '@'}, :partial => 'settings/mention'
+  settings default: loader.default_settings, partial: 'settings/redmine_mentions'
 end
 
 RedminePluginKit::Loader.persisting do

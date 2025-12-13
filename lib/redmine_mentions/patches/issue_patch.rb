@@ -1,23 +1,17 @@
 # frozen_string_literal: true
 
 # Send separate mention notifications for edits/adds regardless of @notify value.
-# Send mentions also after update (mentionable will filter only new mentions).
 module RedmineMentions
   module Patches
-    module JournalPatch
+    module IssuePatch
       def self.included(base)
         base.prepend(InstanceMethods)
         base.after_create_commit :send_create_mention_notifications
-        base.after_update_commit :send_update_mention_notifications
       end
 
       module InstanceMethods
-        def send_update_mention_notifications
-          Mailer.deliver_issue_edit_mentions(self)
-        end
-
         def send_create_mention_notifications
-          Mailer.deliver_issue_edit_mentions(self)
+          Mailer.deliver_issue_add_mentions(self)
         end
       end
     end

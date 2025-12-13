@@ -1,0 +1,8 @@
+
+<p><%= l(:html_you_were_mentioned, :login => @author.login, :created_on => (format_time @created_on, true)).html_safe %></p>
+
+<hr />
+
+<h4><%= link_to "#{@wiki_content.title}", @wiki_content_url %></h4>
+
+<%= textilizable(@wiki_content, :comments, {:headings => false, :only_path => false}) -%>

@@ -1,0 +1,9 @@
+#all_attributes .redmine-mentions-hint {
+    display: none;
+}
+
+@media print {
+    .redmine-mentions-hint {
+        display: none;
+    }
+}

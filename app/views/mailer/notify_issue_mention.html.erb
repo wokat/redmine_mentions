@@ -1,0 +1,12 @@
+
+<p><%= l(:html_you_were_mentioned, :login => @author.login, :created_on => (format_time @created_on, true)).html_safe %></p>
+
+<hr />
+
+<h4><%= link_to "#{@issue.tracker.name} ##{@issue.id}: #{@issue.subject}", @issue_url %></h4>
+
+<% if @journal.nil? %>
+    <%= textilizable(@issue, :description, {:headings => false, :only_path => false}) -%>
+<% else %>
+    <%= textilizable(@journal, :notes, {:headings => false, :only_path => false}) -%>
+<% end %>
