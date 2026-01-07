@@ -10,6 +10,8 @@ module RedmineMentions
                 :partial => 'hooks/redmine_mentions/edit_mentionable'
       render_on :view_issues_form_details_bottom,
                 :partial => 'hooks/redmine_mentions/edit_mentionable'
+      render_on :view_layouts_base_body_bottom,
+                :partial => 'hooks/redmine_mentions/fix_mentions_autocomplete'
     end
   end
 end

@@ -10,7 +10,7 @@ module RedmineMentions
     private
 
     def setup
-      loader.add_patch %w[Issue Journal Mailer WikiContent]
+      loader.add_patch %w[Issue Journal Mailer WatchersController WikiContent]
       loader.add_patch({
         target: Redmine::Acts::Mentionable::InstanceMethods,
         patch: 'Mentionable'
