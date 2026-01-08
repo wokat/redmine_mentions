@@ -23,7 +23,7 @@ module RedmineMentions
           return false
         end
 
-        if !User.current.member_of?(@project)
+        if !User.current.admin? && !User.current.member_of?(@project)
           render_403
           return false
         end
